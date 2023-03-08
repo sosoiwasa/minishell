@@ -2,7 +2,7 @@ NAME   = minishell
 CC     = cc
 CFLAGS = -Wall -Wextra -Werror $(INCLUDES)
 LIBS   = -lreadline
-SRCS   = src/readline.c
+SRCS   = src/minishell.c
 OBJS   = $(SRCS:%.c=%.o)
 
 #################

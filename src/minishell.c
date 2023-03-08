@@ -20,7 +20,7 @@ int	main(void)
 	while (1)
 	{
 		line = readline("minishell$ ");
-		if (line == NULL)
+		if (!line)
 			break ;
 		if (*line)
 			add_history(line);

@@ -42,7 +42,6 @@ char	*get_exec_path(char *line)
 	return (NULL);
 }
 
-
 // int main(void)
 // {
 // 	if (access("/bin/ls", X_OK) == 0)

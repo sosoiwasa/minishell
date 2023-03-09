@@ -27,8 +27,8 @@ int	interpret(char *line, t_data *data)
 	char		*path;
 	int			wstatus;
 
-	if (!*line)
-		return (0);
+	// if (!*line)
+	// 	return (0);
 	data->args = ft_split(line, ' ');
 	pid = fork();
 	if (pid < 0)
@@ -67,7 +67,7 @@ int	main(void)
 			break ;
 		if (*line)
 			add_history(line);
-		interpret(line, &data);	
+		interpret(line, &data);
 		ft_free(data.args);
 		free(line);
 	}

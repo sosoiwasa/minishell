@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmatsuok <rmatsuok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: siwasa <siwasa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:28:46 by rmatsuok          #+#    #+#             */
-/*   Updated: 2023/03/08 15:28:58 by rmatsuok         ###   ########.fr       */
+/*   Updated: 2023/03/09 21:58:46 by siwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ int	interpret(char *line, t_data *data)
 	{
 		// child process
 		path = get_exec_path(data->args[0]);
+		if (!path)
+		{
+			ft_puterror(data->args[0]);
+			ft_puterror(": command not found\n");
+			return (-1);
+		}
 		execve(path, data->args, environ);
 		fatal_error("execve");
 	}
@@ -61,7 +67,7 @@ int	main(void)
 			break ;
 		if (*line)
 			add_history(line);
-		interpret(line, &data);
+		interpret(line, &data);	
 		ft_free(data.args);
 		free(line);
 	}

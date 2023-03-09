@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmatsuok <rmatsuok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: siwasa <siwasa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:28:46 by rmatsuok          #+#    #+#             */
-/*   Updated: 2023/03/08 15:28:58 by rmatsuok         ###   ########.fr       */
+/*   Updated: 2023/03/09 21:46:27 by siwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
 char	**ft_free(char **p);
+int    ft_puterror(char *str);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.c                                        :+:      :+:    :+:   */
+/*   ft_get_path.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmatsuok <rmatsuok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: siwasa <siwasa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:28:46 by rmatsuok          #+#    #+#             */
-/*   Updated: 2023/03/08 15:28:58 by rmatsuok         ###   ########.fr       */
+/*   Updated: 2023/03/09 21:39:21 by siwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ char	*get_exec_path(char *line)
 	tmp = ft_split(path, ':');
 	while (tmp[i])
 	{
+		///no malloc error
 		ans = ft_strdup(tmp[i]);
 		ans = ft_strjoin(ans, "/");
 		ans = ft_strjoin(ans, line);
@@ -37,6 +38,7 @@ char	*get_exec_path(char *line)
 		free(ans);
 		i++;
 	}
+	ft_free(tmp);
 	return (NULL);
 }
 

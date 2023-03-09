@@ -12,11 +12,11 @@
 
 #include "minishell.h"
 
-int    ft_puterror(char *str)
+int	ft_puterror(char *str)
 {
-    size_t    len;
+	size_t	len;
 
-    len = ft_strlen(str);
-    write(STDERR_FILENO, str, len);
-    return (-1);
+	len = ft_strlen(str);
+	write(STDERR_FILENO, str, len);
+	return (-1);
 }

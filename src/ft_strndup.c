@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "minishell.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <ctype.h>
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
+char	*ft_strndup(const char *src, size_t n)
+{
+	size_t	j;
+	char	*str;
 
-char	*ft_strjoin(char *s1, char *s2);
-char	*get_exec_path(char *line);
-char	*ft_strndup(const char *src, size_t n);
-char	**ft_split(char const *s, char c);
-char	*ft_strdup(const char *src);
-size_t	ft_strlen(const char *s);
-
-#endif
+	j = 0;
+	str = (char *)malloc(sizeof(char) * (n + 1));
+	if (str == NULL)
+		return (NULL);
+	while (j < n && src[j] != '\0')
+	{
+		str[j] = src[j];
+		j++;
+	}
+	str[j] = '\0';
+	return (str);
+}

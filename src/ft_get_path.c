@@ -10,22 +10,54 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "minishell.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <ctype.h>
-# include <stdio.h>
-# include <readline/readline.h>
-# include <readline/history.h>
+static void	ft_free(char **tmp)
+{
+	size_t	i;
 
-char	*ft_strjoin(char *s1, char *s2);
-char	*get_exec_path(char *line);
-char	*ft_strndup(const char *src, size_t n);
-char	**ft_split(char const *s, char c);
-char	*ft_strdup(const char *src);
-size_t	ft_strlen(const char *s);
+	i = 0;
+	while (tmp[i])
+	{
+		free(tmp[i]);
+		i++;
+	}
+	free(tmp);
+}
 
-#endif
+char	*get_exec_path(char *line)
+{
+	size_t	i;
+	char	*path;
+	char	*ans;
+	char	**tmp;
+
+	i = 0;
+	path = getenv("PATH");
+	if (!path)
+		exit(EXIT_FAILURE);
+	tmp = ft_split(path, ':');
+	while (tmp[i])
+	{
+		ans = ft_strdup(tmp[i]);
+		ans = ft_strjoin(ans, "/");
+		ans = ft_strjoin(ans, line);
+		if (access(ans, X_OK) == 0)
+		{
+			ft_free(tmp);
+			return (ans);
+		}
+		free(ans);
+		i++;
+	}
+	return (NULL);
+}
+
+
+// int main(void)
+// {
+// 	if (access("/bin/ls", X_OK) == 0)
+// 		printf("ok\n");
+// 	else
+// 		printf("no ok\n");
+// }

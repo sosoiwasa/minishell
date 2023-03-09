@@ -21,11 +21,17 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
+typedef struct s_data
+{
+	char	**args;
+}	t_data;
+
 char	*ft_strjoin(char *s1, char *s2);
 char	*get_exec_path(char *line);
 char	*ft_strndup(const char *src, size_t n);
 char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
+char	**ft_free(char **p);
 
 #endif

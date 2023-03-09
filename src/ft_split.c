@@ -35,15 +35,15 @@ static size_t	countelements(char const *s, char c)
 	return (cnt);
 }
 
-static	char	**ft_free(char **p, size_t i)
+char	**ft_free(char **p)
 {
-	size_t	j;
+	size_t	i;
 
-	j = 0;
-	while (j < i)
+	i = 0;
+	while (p[i])
 	{
-		free(p[j]);
-		j++;
+		free(p[i]);
+		i++;
 	}
 	free(p);
 	return (NULL);
@@ -67,7 +67,7 @@ static char	**createline(char **p, char const *s, char c)
 			j++;
 		p[i] = ft_strndup(&s[tmp], j - tmp);
 		if (p[i] == NULL)
-			return (ft_free(p, i));
+			return (ft_free(p));
 		i++;
 	}
 	p[i] = NULL;

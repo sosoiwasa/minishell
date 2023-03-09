@@ -12,19 +12,6 @@
 
 #include "minishell.h"
 
-static void	ft_free(char **tmp)
-{
-	size_t	i;
-
-	i = 0;
-	while (tmp[i])
-	{
-		free(tmp[i]);
-		i++;
-	}
-	free(tmp);
-}
-
 char	*get_exec_path(char *line)
 {
 	size_t	i;

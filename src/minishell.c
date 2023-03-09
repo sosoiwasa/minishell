@@ -20,24 +20,24 @@ void	fatal_error(const char *msg)
 	exit(1);
 }
 
-int	interpret(char *line)
+int	interpret(char *line, t_data *data)
 {
 	extern char	**environ;
-	char		*argv[] = {line, NULL};
 	pid_t		pid;
 	char		*path;
 	int			wstatus;
 
 	if (!*line)
 		return (0);
+	data->args = ft_split(line, ' ');
 	pid = fork();
 	if (pid < 0)
 		fatal_error("fork");
 	else if (pid == 0)
 	{
 		// child process
-		path = get_exec_path(line);
-		execve(path, argv, environ);
+		path = get_exec_path(data->args[0]);
+		execve(path, data->args, environ);
 		fatal_error("execve");
 	}
 	else
@@ -51,7 +51,9 @@ int	interpret(char *line)
 int	main(void)
 {
 	char	*line;
+	t_data	*data;
 
+	data = malloc(sizeof(t_data));
 	rl_outstream = stderr;
 	while (1)
 	{
@@ -60,7 +62,8 @@ int	main(void)
 			break ;
 		if (*line)
 			add_history(line);
-		interpret(line);
+		interpret(line, data);
+		ft_free(data->args);
 		free(line);
 	}
 	printf("\nexit\n");

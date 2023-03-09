@@ -51,9 +51,8 @@ int	interpret(char *line, t_data *data)
 int	main(void)
 {
 	char	*line;
-	t_data	*data;
+	t_data	data;
 
-	data = malloc(sizeof(t_data));
 	rl_outstream = stderr;
 	while (1)
 	{
@@ -62,8 +61,8 @@ int	main(void)
 			break ;
 		if (*line)
 			add_history(line);
-		interpret(line, data);
-		ft_free(data->args);
+		interpret(line, &data);
+		ft_free(data.args);
 		free(line);
 	}
 	printf("\nexit\n");

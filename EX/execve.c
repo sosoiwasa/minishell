@@ -6,7 +6,7 @@
 /*   By: siwasa <siwasa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:25:29 by siwasa            #+#    #+#             */
-/*   Updated: 2023/03/09 12:56:29 by siwasa           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:27:03 by siwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int main()
 {
-	char *argv[] = {"cat", "access.c", NULL};
+	char *argv[] = {"ls", "-l", "-a", NULL};
 	char *envp[] = {NULL};
-	execve("/bin/cat", argv, envp);
+	execve("/bin/ls", argv, envp);
 	return (0);
 }

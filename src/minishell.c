@@ -28,6 +28,8 @@ int	interpret(char *line)
 	char		*path;
 	int			wstatus;
 
+	if (!*line)
+		return (0);
 	pid = fork();
 	if (pid < 0)
 		fatal_error("fork");
@@ -56,9 +58,9 @@ int	main(void)
 		line = readline("minishell$ ");
 		if (!line)
 			break ;
-		interpret(line);
 		if (*line)
 			add_history(line);
+		interpret(line);
 		free(line);
 	}
 	printf("\nexit\n");

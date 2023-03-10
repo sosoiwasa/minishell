@@ -41,7 +41,7 @@ int	interpret(char *line, t_data *data)
 		{
 			ft_puterror(data->args[0]);
 			ft_puterror(": command not found\n");
-			return (-1);
+			exit (0);
 		}
 		execve(path, data->args, environ);
 		fatal_error("execve");

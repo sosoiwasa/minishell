@@ -31,6 +31,7 @@ int	interpret(char *line, t_data *data)
 	// if (!*line)
 	// 	return (0);
 	tline = tokenize(line);
+	tline = ft_replacement(tline, " \n\t", ' ');
 	data->args = ft_split(tline, ' ');
 	free(tline);
 	pid = fork();

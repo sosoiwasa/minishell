@@ -6,7 +6,7 @@
 /*   By: siwasa <siwasa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:28:46 by rmatsuok          #+#    #+#             */
-/*   Updated: 2023/03/13 13:03:26 by siwasa           ###   ########.fr       */
+/*   Updated: 2023/03/13 13:24:13 by siwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	fatal_error(const char *msg) __attribute__((noreturn));
 
 void	fatal_error(const char *msg)
 {
-	ft_puterror(msg);
+	ft_puterror((char *)msg);
 	exit(1);
 }
 
@@ -31,7 +31,7 @@ int	interpret(char *line, t_data *data)
 	// if (!*line)
 	// 	return (0);
 	tline = tokenize(line);
-	tline = ft_replacement(tline, " \n\t", ' ');
+	// tline = ft_replacement(tline, " \n\t", ' ');
 	data->args = ft_split(tline, ' ');
 	free(tline);
 	pid = fork();

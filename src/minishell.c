@@ -25,11 +25,15 @@ int	interpret(char *line, t_data *data)
 	extern char	**environ;
 	pid_t		pid;
 	char		*path;
+	char		*tline;
 	int			wstatus;
 
 	// if (!*line)
 	// 	return (0);
-	data->args = ft_split(line, ' ');
+	tline = tokenize(line);
+	tline = ft_replacement(tline, " \n\t", ' ');
+	data->args = ft_split(tline, ' ');
+	free(tline);
 	pid = fork();
 	if (pid < 0)
 		fatal_error("fork");

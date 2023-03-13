@@ -18,6 +18,7 @@
 # include <string.h>
 # include <ctype.h>
 # include <stdio.h>
+# include <stdbool.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 
@@ -33,6 +34,10 @@ char	**ft_split(char const *s, char c);
 char	*ft_strdup(const char *src);
 size_t	ft_strlen(const char *s);
 char	**ft_free(char **p);
-int    ft_puterror(char *str);
+int		ft_puterror(char *str);
+int		ft_strcmp(const char *s1, const char *s2);
+char	*ft_replacement(char *str, char *set, char c);
+ssize_t	get_trim_char_index(char *s1, char c);
+char	*tokenize(char *str);
 
 #endif

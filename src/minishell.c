@@ -6,7 +6,7 @@
 /*   By: siwasa <siwasa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:28:46 by rmatsuok          #+#    #+#             */
-/*   Updated: 2023/03/09 21:58:46 by siwasa           ###   ########.fr       */
+/*   Updated: 2023/03/13 13:03:26 by siwasa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	fatal_error(const char *msg) __attribute__((noreturn));
 
 void	fatal_error(const char *msg)
 {
-	dprintf(STDERR_FILENO, "Fatal Error: %s\n", msg);
+	ft_puterror(msg);
 	exit(1);
 }
 
